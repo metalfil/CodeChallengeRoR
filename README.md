@@ -17,7 +17,7 @@ Requisitos para empezar :
 
 * clonar el repositorio: 
 
--bash
+-bash 
    git clone https://github.com/metalfil/CodeChallengeRoR.git
    cd CodeChallengeRoR
 
