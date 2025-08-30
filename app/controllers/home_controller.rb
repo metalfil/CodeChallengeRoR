@@ -15,7 +15,7 @@ class HomeController < ApplicationController
         price = row['Precio por pieza']
         seller_name = row['Nombre del Vendedor'].strip.capitalize
         address_seller = row['Dieccion del vendedor']
-        # cantidad = row['Numero de piezas'] 
+        # cantidad = row['Numero de piezas'] no era necesario
 
         buyer = Buyer.find_or_create_by(name: cliente_name)
         item = Item.find_or_create_by(
