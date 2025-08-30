@@ -35,9 +35,9 @@ class HomeController < ApplicationController
         )
       end
     end
-    # redirect_to root_path
-    calcular_total
-    render :index
+    redirect_to root_path
+    #calcular_total
+    #render :index
   end
 
   def calcular_total
