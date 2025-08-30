@@ -15,6 +15,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: fili_user
+  password: metalfil
+  host: localhost
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -22,7 +25,7 @@ default: &default
 
 development:
   <<: *default
-  database: mi_proyecto_development
+  database: miproyectodb_dev
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: mi_proyecto_test
+  database: miproyectodb_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,18 +84,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: mi_proyecto_production
-    username: mi_proyecto
-    password: <%= ENV["MI_PROYECTO_DATABASE_PASSWORD"] %>
+    database: miproyectodb_prod
+    username: fili_user
+    password: metalfil
   cache:
     <<: *primary_production
-    database: mi_proyecto_production_cache
+    database: miproyectodb_prod_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: mi_proyecto_production_queue
+    database: miproyectodb_prod_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: mi_proyecto_production_cable
+    database: miproyectodb_prod_cable
     migrations_paths: db/cable_migrate
