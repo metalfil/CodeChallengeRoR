@@ -1,24 +1,35 @@
-# README
+#README
+Este README es un instructivo para cargar un archivo ara cargar archivos .tab y ver la venta total.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Requisitos para empezar :
 
-Things you may want to cover:
+* WSL
 
-* Ruby version
+* Ruby 3.2.2
 
-* System dependencies
+* Rails 8.0.2.1
 
-* Configuration
+* PostgreSQL
 
-* Database creation
+* Bundler
 
-* Database initialization
+ Instalación 
 
-* How to run the test suite
+* clonar el repositorio: 
 
-* Services (job queues, cache servers, search engines, etc.)
+-bash
+   git clone https://github.com/metalfil/CodeChallengeRoR.git
+   cd CodeChallengeRoR
 
-* Deployment instructions
+-bash
+   bundle install
+   rails db:create
+   rails db:migrate
+   bin/rails server
 
-* ...
+Abrir en el navegardor http://localhost:3000
+
+Presionar el botón Choose File
+Seleccionar el archivo separado por tab
+Presionar el botón Cargar CSV
+Verás el resultado en la pantalla.
