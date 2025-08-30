@@ -2,14 +2,14 @@ require 'csv'
 
 class HomeController < ApplicationController
   def index
-
+    calcular_total
   end
 
   def upload
     if params[:file].present?
       uploaded_file = params[:file]
       CSV.foreach(uploaded_file.path, headers: true, col_sep: "\t") do |row|
-        puts row.inspect #imprime en la terminal los datos
+        # puts row.inspect #imprime en la terminal los datos
         cliente_name = row['Cliente'].strip.capitalize
         descr = row['Descripcion del Producto'].strip.capitalize
         price = row['Precio por pieza']
@@ -35,6 +35,18 @@ class HomeController < ApplicationController
         )
       end
     end
-    redirect_to root_path
+    # redirect_to root_path
+    calcular_total
+    render :index
   end
+
+  def calcular_total
+    @sales = Sale.includes(:item).all #busca los precios de item
+    @grand_total = if @sales.any? #si no tiene datos
+      @sales.sum { |sale| sale.quantity * sale.item.price }
+    else
+      0
+    end
+  end
+
 end

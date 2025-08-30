@@ -1,6 +1,11 @@
-<h1>Cargar CSV datos iniciales</h1>
+<h1>Cargar txt datos iniciales</h1>
 
 <%= form_with url: home_upload_path, local: true, multipart: true do |f| %>
   <%= f.file_field :file %>
   <%= f.submit "Cargar CSV" %>
 <% end %>
+
+<hr>
+<h2>Venta total</h2>
+
+<h3>Total general: <%= number_to_currency(@grand_total) %> MXN</h3>
